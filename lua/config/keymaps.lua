@@ -19,7 +19,7 @@ keymap.set("n", "sv", ":vsplit<Return><C-w>w")
 
 keymap.set("n", "<C-n>", function()
   require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-end)
+end, {desc="Open/Close neo-tree"})
 
 
 --buffers
@@ -31,11 +31,12 @@ local terminal = require("nvterm.terminal")
 
 keymap.set({"n","v","i"}, "<A-v>", function ()
     terminal.toggle('vertical')
-end)
+end, {desc = "Toggle vertical terminal"})
 keymap.set({"n","v","i"}, "<A-h>", function ()
     terminal.toggle('horizontal')
-end)
+end, {desc = "Toggle horizontal terminal"})
 keymap.set({"n","v","i"}, "<A-i>", function ()
     terminal.toggle('float')
-end)
-keymap.set("t","<C-x>", vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true))
+end,{desc = "Toggle floating terminal"})
+keymap.set("t","<C-x>", vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true),
+  {noremap = true, silent = true, expr = true, desc = "Exit terminal mode"})
