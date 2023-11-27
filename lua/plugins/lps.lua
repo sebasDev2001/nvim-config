@@ -54,6 +54,9 @@ return {
           },
         },
       },
+      htmx ={
+        filetypes = { "html" },
+      }
     },
   },
 }
