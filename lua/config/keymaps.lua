@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 local keymap = vim.keymap
---local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true }
 
 keymap.set({ "n", "v" }, ";", ":")
 keymap.set("n", "dw", "diw")
@@ -14,19 +14,30 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
-keymap.set("n", "ss", ":split<Return><C-w>w")
-keymap.set("n", "sv", ":vsplit<Return><C-w>w")
+-- Increment/decrement numbers
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
 
+-- Split and vsplit
+keymap.set("n", "ss", ":split<Return><C-w>w", opts)
+keymap.set("n", "sv", ":vsplit<Return><C-w>w", opts)
+
+-- Tabs
+keymap.set("n", "te", ":tabedit<Return>", opts)
+keymap.set("n", "tc", ":tabclose<Return>", opts)
+keymap.set("n", "tn", ":tabnext<Return>", opts)
+keymap.set("n", "tp", ":tabprev<Return>", opts)
+
+-- Open file-tree
 keymap.set("n", "<C-n>", function()
   require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
 end, {desc="Open/Close neo-tree"})
 
-
---buffers
+-- Buffers
 keymap.set("n", "<tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap.set("n", "<S-tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
---nvterm
+-- NvTerm
 local terminal = require("nvterm.terminal")
 
 keymap.set({"n","v","i"}, "<A-v>", function ()
