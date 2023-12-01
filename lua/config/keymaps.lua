@@ -34,8 +34,8 @@ keymap.set("n", "<C-n>", function()
 end, {desc="Open/Close neo-tree"})
 
 -- Buffers
-keymap.set("n", "<tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-keymap.set("n", "<S-tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap.set("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap.set("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- NvTerm
 local terminal = require("nvterm.terminal")
