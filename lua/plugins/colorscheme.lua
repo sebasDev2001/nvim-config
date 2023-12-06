@@ -1,3 +1,4 @@
+local transparent = false
 return {
   -- add gruvbox
   {
@@ -6,7 +7,7 @@ return {
     priority = 1000,
     config = function()
       require('gruvbox').setup({
-        transparent_mode = true,
+        transparent_mode = transparent,
       })
     end,
   },
@@ -16,7 +17,7 @@ return {
     priority = 1000,
     opts = function()
       return {
-        transparent = true,
+        transparent = transparent,
       }
     end,
   },
@@ -28,7 +29,11 @@ return {
     config = function ()
       require('catppuccin').setup({
         flavour = "mocha",
-        transparent_background = true,
+        background = {
+          light = "latte",
+          dark = "mocha"
+        },
+        transparent_background = transparent,
         integrations = {
           telescope = true,
           nvimtree = true,
@@ -44,7 +49,7 @@ return {
     priority = 1000,
     opts = function()
       return {
-        transparent = true,
+        transparent = transparent,
       }
     end,
   },
@@ -61,8 +66,8 @@ return {
     config = function ()
       require('rose-pine').setup({
         --- @usage 'auto'|'main'|'moon'|'dawn'
-        variant = 'moon',
-        disable_background = true,
+        variant = 'main',
+        disable_background = transparent,
       })
     end
   },
@@ -74,7 +79,7 @@ return {
     config = function ()
       require('onedarkpro').setup({
         options = {
-          transparency = true,
+          transparency = transparent,
         }
       })
     end,
@@ -85,7 +90,7 @@ return {
     priority = 1000,
     config = function ()
       require('nordic').setup({
-        transparent_bg = true,
+        transparent_bg = transparent,
       })
     end,
   },
@@ -97,7 +102,7 @@ return {
       require('onenord').setup({
         theme = "dark",
         disable = {
-          background = true,
+          background = transparent,
         }
       })
     end,
@@ -110,11 +115,10 @@ return {
       require('poimandres').setup {
         bold_vert_split = false, -- use bold vertical separators
         dim_nc_background = false, -- dim 'non-current' window backgrounds
-        disable_background = true, -- disable background
+        disable_background = transparent, -- disable background
         disable_float_background = false, -- disable background for floats
         disable_italics = false, -- disable italics
       }
     end
   }
-
 }
