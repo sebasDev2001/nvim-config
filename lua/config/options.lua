@@ -15,7 +15,7 @@ opt.number = true
 
 -- tabs and indentations
 opt.autoindent = true
-opt.virtualedit = "all"
+opt.virtualedit = "insert"
 
 -- search settiongs
 opt.ignorecase = true

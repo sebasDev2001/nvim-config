@@ -16,9 +16,11 @@ return {
     lazy = true,
     priority = 1000,
     opts = function()
-      return {
+      require("tokyonight").setup({
+        --- @usage 'storm'\'moon'\'night'
+        style = "moon",
         transparent = transparent,
-      }
+      })
     end,
   },
   {
@@ -48,9 +50,9 @@ return {
     lazy = true,
     priority = 1000,
     opts = function()
-      return {
+      require("solarized-osaka").setup({
         transparent = transparent,
-      }
+      })
     end,
   },
   {

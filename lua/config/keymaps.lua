@@ -52,5 +52,5 @@ end,{desc = "Toggle floating terminal"})
 keymap.set("t", "<C-x>", "<C-\\><C-N>", {noremap = true, silent = true, desc = "Exit terminal mode"})
 
 --Copilot
-keymap.set("n", "<leader>Ce",":Copilot enable<Return>", opts)
-keymap.set("n", "<leader>Cd",":Copilot disable<Return>", opts)
+keymap.set("n", "<leader>Ce",":Copilot enable<Return>", {noremap = true, silent = true, desc = "Enable copilot"})
+keymap.set("n", "<leader>Cd",":Copilot disable<Return>", {noremap = true, silent = true, desc = "Disable copilot"})
