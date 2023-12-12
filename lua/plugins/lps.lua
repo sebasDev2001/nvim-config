@@ -10,6 +10,7 @@ return {
         settings = {
           python = {
             --pythonPath = "C:/ProgramData/Anaconda3/python.exe", --Python 3.10
+            --pythonPath = "~/Anaconda3/envs/base_11/pyton.exe" -- work Python 3.11
             pythonPath = "C:/ProgramData/anaconda3/envs/env3_12/python.exe",
             analysis = {
               autoImportCompletions = true,
