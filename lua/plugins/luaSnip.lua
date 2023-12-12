@@ -1,10 +1,10 @@
 return {
-  {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   keys = function()
+  --     return {}
+  --   end,
+  -- },
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
