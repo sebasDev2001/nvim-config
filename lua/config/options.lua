@@ -24,7 +24,11 @@ opt.smartcase = true
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
---terminals_first
+--terminal Windows
 opt.shell = "pwsh"
 opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
 opt.shellxquote = ""
+
+--terminal Linux
+-- opt.shell = "zsh" -- "bash"
+
