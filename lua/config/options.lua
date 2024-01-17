@@ -15,6 +15,7 @@ opt.number = true
 
 -- tabs and indentations
 opt.autoindent = true
+opt.smartindent = true
 opt.virtualedit = "insert"
 
 -- search settiongs
