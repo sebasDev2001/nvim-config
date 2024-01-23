@@ -1,4 +1,4 @@
---if true then return {}  end
+-- if true then return {}  end
 
 local util = require("lspconfig.util")
 return {
@@ -75,9 +75,13 @@ return {
       },
       htmx ={
         filetypes = { "html" },
-      }
+      },
+      rust_analyzer = {},
     },
     setup = {
+      rust_analyzer = function()
+        return true
+      end,
       ruff_lsp = function ()
         require("lazyvim.util").lsp.on_attach(function (client,_)
           if client.name == "ruff_lsp" then
