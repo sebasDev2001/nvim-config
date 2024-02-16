@@ -54,3 +54,6 @@ keymap.set("t", "<C-x>", "<C-\\><C-N>", {noremap = true, silent = true, desc = "
 --Copilot
 keymap.set("n", "<leader>Ce",":Copilot enable<Return>", {noremap = true, silent = true, desc = "Enable copilot"})
 keymap.set("n", "<leader>Cd",":Copilot disable<Return>", {noremap = true, silent = true, desc = "Disable copilot"})
+
+--Telesscope find all files
+keymap.set("n", "<leader>fa",":Telescope find_files hidden=true<Return>", {noremap = true, silent = true, desc = "Find Files (include all)"})
