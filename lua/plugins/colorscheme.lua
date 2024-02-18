@@ -122,5 +122,16 @@ return {
         disable_italics = false, -- disable italics
       }
     end
-  }
+  },
+  {
+    "bluz71/vim-nightfly-colors",
+    lazy = true,
+    name = 'nightfly',
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    priority = 1000,
+  },
 }
