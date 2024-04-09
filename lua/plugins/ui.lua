@@ -14,7 +14,7 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "wombat",
+        theme = "seoul256",
       },
     },
   },
@@ -22,7 +22,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nightfly",
+      colorscheme = "gruvbox",
     },
   },
   -- bufferline
@@ -30,7 +30,7 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-        mode = "tabs",
+        -- mode = "tabs",
         show_buffer_close_icons = false,
         show_close_icon = false,
       },
