@@ -59,6 +59,7 @@ keymap.set("n", "<leader>Cd",":Copilot disable<Return>", {noremap = true, silent
 keymap.set("n", "<leader>fa",":Telescope find_files hidden=true<Return>", {noremap = true, silent = true, desc = "Find Files (include all)"})
 
 -- Inaly Hints
+vim.lsp.inlay_hint.enable(false)
 if vim.lsp.inlay_hint then
   vim.keymap.set(
     "n",
