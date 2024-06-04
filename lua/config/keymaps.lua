@@ -13,6 +13,8 @@ keymap.set("n", "cW", "ciW")
 keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<tab>", ">>")
+keymap.set("n", "<S-tab>", "<<")
 
 -- Increment/decrement numbers
 keymap.set("n", "+", "<C-a>")
