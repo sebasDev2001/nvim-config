@@ -51,7 +51,9 @@ return {
     priority = 1000,
     opts = function()
       require("solarized-osaka").setup({
-        transparent = transparent,
+        transparent = false,
+        on_colors = function() end,
+        on_highlights = function() end
       })
     end,
   },
