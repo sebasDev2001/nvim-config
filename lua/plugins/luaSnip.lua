@@ -35,13 +35,8 @@ return {
 
         ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
 
-        ['<C-n>'] = { 
-          function(cmp)
-            if some_condition then return end -- runs the next command
-            return true -- doesn't run the next command
-          end,
-          'select_next'
-        },
+        ['<C-n>'] = {'select_next', 'fallback'},
+        ['<C-p>'] = {'select_prev', 'fallback'}
         ['<CR>'] = { 'accept', 'fallback' },
       },
       appearance = { 
