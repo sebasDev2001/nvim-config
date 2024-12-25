@@ -36,7 +36,7 @@ return {
         ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
 
         ['<C-n>'] = {'select_next', 'fallback'},
-        ['<C-p>'] = {'select_prev', 'fallback'}
+        ['<C-p>'] = {'select_prev', 'fallback'},
         ['<CR>'] = { 'accept', 'fallback' },
       },
       appearance = { 
