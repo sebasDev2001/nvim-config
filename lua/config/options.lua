@@ -26,10 +26,10 @@ opt.smartcase = true
 opt.clipboard:append("unnamedplus")
 
 --terminal Windows
--- opt.shell = "pwsh"
--- opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
--- opt.shellxquote = ""
+opt.shell = "pwsh"
+opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+opt.shellxquote = ""
 
 --terminal Linux
-opt.shell = "zsh" -- "bash"
+-- opt.shell = "zsh" -- "bash"
 
