@@ -53,7 +53,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false,
         on_colors = function() end,
-        on_highlights = function() end
+        on_highlights = function() end,
       })
     end,
   },
