@@ -11,8 +11,8 @@ return {
         },
         suggestion = {
           enabled = true,
-          auto_trigger = true,
-          accept = false, -- disable built-in keymapping
+          auto_trigger = false,
+          debounce = 50,
         },
       })
       -- hide copilot suggestions when cmp menu is open
