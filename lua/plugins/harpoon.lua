@@ -4,7 +4,15 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
   config = function()
     local harpoon = require("harpoon")
-    harpoon:setup({})
+    harappendpoon:setup({})
+
+    -- Set harpoon to reset on different vim sessions
+    vim.api.nvim_create_autocmd("VimLeave", {
+      pattern = "*",
+      callback = function ()
+        harpoon:list():clear()
+      end
+    })
 
     --keymaps
     vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
