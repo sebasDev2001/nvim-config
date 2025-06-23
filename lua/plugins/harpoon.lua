@@ -4,7 +4,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
   config = function()
     local harpoon = require("harpoon")
-    harappendpoon:setup({})
+    harpoon():setup({})
 
     -- Set harpoon to reset on different vim sessions
     vim.api.nvim_create_autocmd("VimLeave", {
