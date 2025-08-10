@@ -1,5 +1,5 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   opts = {
     ensure_installed = {
       -- lua stuff
@@ -7,11 +7,11 @@ return {
       "stylua",
 
       -- web dev stuff
-      "css-lsp",
-      "html-lsp",
-      "typescript-language-server",
-      "deno",
-      "prettier",
+      -- "css-lsp",
+      -- "html-lsp",
+      -- "typescript-language-server",
+      -- "deno",
+      -- "prettier",
 
       -- c/cpp stuff
       "clangd",
@@ -19,7 +19,6 @@ return {
 
       --python
       "pyright",
-      "mypy",
       "ruff",
       "black",
       "isort",

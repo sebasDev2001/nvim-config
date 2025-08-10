@@ -1,5 +1,3 @@
--- if true then return {}  end
-
 local util = require("lspconfig.util")
 return {
   "neovim/nvim-lspconfig",
@@ -24,23 +22,6 @@ return {
               typeCheckingMode = "off", -- off, basic, strict
               useLibraryCodeForTypes = true,
             },
-          },
-        },
-      },
-      ruff_lsp = {
-        keys = {
-          {
-            "<leader>co",
-            function()
-              vim.lsp.buf.code_action({
-                apply = true,
-                context = {
-                  only = { "source.organizeImports" },
-                  diagnostics = {},
-                },
-              })
-            end,
-            desc = "Organize Imports",
           },
         },
       },

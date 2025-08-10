@@ -92,11 +92,9 @@ return {
     "AlexvZyl/nordic.nvim",
     lazy = true,
     priority = 1000,
-    config = function ()
-      require('nordic').setup({
-        transparent_bg = transparent,
-      })
-    end,
+    config = {
+      transparent = transparent,
+    }
   },
   {
     "rmehri01/onenord.nvim",
