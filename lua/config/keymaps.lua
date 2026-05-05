@@ -18,9 +18,14 @@ keymap.set("n", "<S-tab>", "<<")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+keymap.set("n", "gD", function ()
+  vim.lsp.buf.definition()
+end, { desc = "Go to declaration (LSP)" })
+
 -- Increment/decrement numbers
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
+
 
 -- Split and vsplit
 keymap.set("n", "ss", ":split<Return><C-w>w", opts)
@@ -31,11 +36,14 @@ keymap.set("n", "te", ":tabedit<Return>", opts)
 keymap.set("n", "tc", ":tabclose<Return>", opts)
 keymap.set("n", "tn", ":tabnext<Return>", opts)
 keymap.set("n", "tp", ":tabprev<Return>", opts)
+keymap.del("n", "gco")
+keymap.del("n", "gcO")
 
--- Open file-tree
-keymap.set("n", "<C-n>", function()
-  require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-end, {desc="Open/Close neo-tree"})
+-- File-tree toggle
+-- keymap.set("n", "<C-n>", function()
+--   -- require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+--   require("snacks.picker").explorer()
+-- end, {desc="Toggle file-tree"})
 
 -- Buffers
 -- keymap.set("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
@@ -58,9 +66,63 @@ keymap.set("t", "<C-x>", "<C-\\><C-N>", {noremap = true, silent = true, desc = "
 --Copilot
 keymap.set("n", "<leader>Ce",":Copilot enable<Return>", {noremap = true, silent = true, desc = "Enable copilot"})
 keymap.set("n", "<leader>Cd",":Copilot disable<Return>", {noremap = true, silent = true, desc = "Disable copilot"})
+keymap.set("i", "<C-e>", function()
+  require("copilot.suggestion").dismiss()
+end, { desc = "Dismiss Copilot suggestion" })
+keymap.set("n", "<leader>cp", function()
+  require("copilot.suggestion").toggle_auto_trigger()
+end, { desc = "Toggle Copilot auto-trigger" })
+
+-- Smart Tab: Accept Copilot if available, otherwise insert tab/indent
+keymap.set("i", "<Tab>", function()
+  local suggestion = require("copilot.suggestion")
+  if suggestion.is_visible() then
+    suggestion.accept()
+  else
+    return "<Tab>"
+  end
+end, { expr = true, silent = true, desc = "Accept Copilot or insert tab" })
+
+keymap.set("i", "<S-Tab>", function()
+  return "<C-d>"
+end, { expr = true, silent = true, desc = "Unindent" })
 
 --Telesscope find all files
 keymap.set("n", "<leader>fa",":Telescope find_files hidden=true<Return>", {noremap = true, silent = true, desc = "Find Files (include all)"})
+
+-- opencode
+local opencode = require("opencode")
+
+keymap.set("n", "<leader>ot", function()
+  opencode.toggle()
+end, { desc = "Toggle embedded" })
+keymap.set("n", "<leader>oa", function()
+  opencode.ask("@cursor: ")
+end, { desc = "Ask about this" })
+keymap.set("v", "<leader>oa", function()
+  opencode.ask("@selection: ")
+end, { desc = "Ask about selection" })
+keymap.set("n", "<leader>o+", function()
+  opencode.prompt("@buffer", { append = true })
+end, { desc = "Add buffer to prompt" })
+keymap.set("v", "<leader>o+", function()
+  opencode.prompt("@selection", { append = true })
+end, { desc = "Add selection to prompt" })
+keymap.set("n", "<leader>oe", function()
+  opencode.prompt("Explain @cursor and its context")
+end, { desc = "Explain this code" })
+keymap.set("n", "<leader>on", function()
+  opencode.command("session_new")
+end, { desc = "New session" })
+keymap.set("n", "<S-C-u>", function()
+  opencode.command("messages_half_page_up")
+end, { desc = "Messages half page up" })
+keymap.set("n", "<S-C-d>", function()
+  opencode.command("messages_half_page_down")
+end, { desc = "Messages half page down" })
+keymap.set({ "n", "v" }, "<leader>os", function()
+  opencode.select()
+end, { desc = "Select prompt" })
 
 -- Inaly Hints
 vim.lsp.inlay_hint.enable(false)

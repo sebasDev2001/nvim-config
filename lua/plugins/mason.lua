@@ -20,14 +20,13 @@ return {
       --python
       "pyright",
       "ruff",
-      "black",
-      "isort",
 
       --rust
       "rust-analyzer",
 
       --Go
       "gopls",
+      "goimports",
     },
   },
 }

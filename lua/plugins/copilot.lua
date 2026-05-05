@@ -2,31 +2,50 @@ return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   build = ":Copilot auth",
-  event = "BufReadPost",
+  event = "InsertEnter",
   config = function()
     require("copilot").setup({
-    panel = {
-      enabled = true,
-    },
-    suggestion = {
-      enabled = not vim.g.ai_cmp,
-      auto_trigger = true,
-      debounce = 50,
-      hide_during_coimpletion = vim.g.ai_cmp,
-      keymap = {
-        accept = false,
-        next = "<M-]>",
-        prev = "<M-[>",
-      }
-    },
-    file_types = {
-      yaml = true,
-      markdown = true,
-      help = true,
-    }
-  })
-  if true then
-    vim.cmd("Copilot disable")
-  end
-  end
+      panel = {
+        enabled = true,
+        auto_refresh = false,
+        keymap = {
+          jump_prev = "[[",
+          jump_next = "]]",
+          accept = "<CR>",
+          refresh = "gr",
+          open = "<M-CR>",
+        },
+        layout = {
+          position = "bottom", -- | top | left | right
+          ratio = 0.4,
+        },
+      },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 100,
+        keymap = {
+          accept = false, -- We'll handle Tab manually
+          accept_word = false,
+          accept_line = false,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+      filetypes = {
+        yaml = true,
+        markdown = true,
+        help = false,
+        gitcommit = true,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        ["."] = false,
+      },
+      copilot_node_command = "node", -- Node.js version must be > 18.x
+      server_opts_overrides = {},
+    })
+  end,
 }
