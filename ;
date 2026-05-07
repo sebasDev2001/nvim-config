@@ -14,7 +14,9 @@ keymap.set("n", "<S-tab>", "<<")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-keymap.set("t", "<C-x>", "<C-\\><C-N>", {noremap = true, silent = true, desc = "Exit terminal mode"})
+-- keymap.set("n", "gD", function()
+--   vim.lsp.buf.definition()
+-- end, { desc = "Go to declaration (LSP)" })
 
 -- Increment/decrement numbers
 keymap.set("n", "+", "<C-a>")
@@ -71,20 +73,6 @@ end, { desc = "Messages half page down" })
 keymap.set({ "n", "v" }, "<leader>os", function()
   opencode.select()
 end, { desc = "Select prompt" })
-
---Copilot
-keymap.set("n", "<leader>Ce", function()
-  require("copilot").enable()
-end, { noremap = true, silent = true, desc = "Enable Copilot" })
-keymap.set("n", "<leader>Cd", function()
-  require("copilot").disable()
-end, { noremap = true, silent = true, desc = "Disable Copilot" })
-keymap.set("i", "<C-e>", function()
-  require("copilot.suggestion").dismiss()
-end, { desc = "Dismiss Copilot suggestion" })
-keymap.set("n", "<leader>Cp", function()
-  require("copilot.suggestion").toggle_auto_trigger()
-end, { desc = "Toggle Copilot auto-trigger" })
 
 -- Inaly Hints
 vim.lsp.inlay_hint.enable(false)
