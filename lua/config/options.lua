@@ -20,3 +20,6 @@ opt.virtualedit = "insert"
 -- search settiongs
 opt.ignorecase = true
 opt.smartcase = true
+
+-- Python LSP
+vim.g.lazygim_python_lsp = "basedpyright"
